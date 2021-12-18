@@ -30,6 +30,7 @@ export default class HomeScreen extends React.Component {
     signoutUser = () => {
         auth.signOut();
     }
+
     render() {
         return (
             <View style={styles.container}>

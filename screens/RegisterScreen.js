@@ -38,8 +38,6 @@ export default class RegisterScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <StatusBar barStyle='light=content'></StatusBar>
-
                 <Image
                     source={require('../assets/authHeader.png')}
                     style={{ marginTop: -180, marginLeft: -70 }}>

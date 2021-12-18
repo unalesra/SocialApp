@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-
 import { initializeApp } from "firebase/app"
 
 const firebaseConfig = {
@@ -15,6 +14,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
+
 
 export default class LoadingScreen extends React.Component {
     componentDidMount() {

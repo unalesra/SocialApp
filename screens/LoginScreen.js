@@ -16,6 +16,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
 export default class LoginScreen extends React.Component {
+
     static navigationOptions = {
         header: null
     };
@@ -35,7 +36,6 @@ export default class LoginScreen extends React.Component {
     }
     render() {
         LayoutAnimation.easeInEaseOut();
-
         return (
             <View style={styles.container}>
                 <StatusBar barStyle='light=content'></StatusBar>
