@@ -1,5 +1,8 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore } from 'firebase/firestore';
+import { getAuth } from "firebase/auth";
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 
 //require("firebase/firestore")
 
@@ -11,7 +14,7 @@ const firebaseConfig = {
     messagingSenderId: "264530972757",
     appId: "1:264530972757:web:f4fe0073af02ecbd0144dc"
 };
-const firebase = getFirestore();
+const firebase1 = getFirestore();
 class Fire {
     constructor() {
         initializeApp(firebaseConfig);
@@ -40,13 +43,13 @@ class Fire {
     }
 
     uploadPhotoAsync = async uri => {
-        const path = `photos/${this.uid}/${DAte.now()}.jpg`;
+        const path = `photos/${this.uid}/${Date.now()}.jpg`;
 
         return new Promise(async (res, rej) => {
             const response = await fetch(uri);
             const file = await response.blob();
 
-            let upload = firebase.storage().ref(path).put(file);
+            let upload = firebase1.storage().ref(path).put(file);
 
             upload.on(
                 "state_changed",
@@ -61,13 +64,17 @@ class Fire {
             )
         })
     }
+    signOut = () => {
+        getAuth().signOut();
+    };
+
 
     get firestore() {
         return firebase.firestore();
     }
 
     get uid() {
-        return (firebase.auth().currentUser || {}).uid;
+        return (getAuth().currentUser || {}).uid;
     }
 
     get timestamp() {
