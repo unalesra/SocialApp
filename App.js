@@ -41,7 +41,6 @@ const AppContainer = createStackNavigator(
                 size={48} color={tintColor}
                 color="#E9446A"
                 style={{
-                  shadowColor: "#E95446A",
                   shadowOffset: { width: 0, height: 0 },
                   shadowRadius: 10,
                   shadowOpacity: 0.3

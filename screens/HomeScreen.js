@@ -1,11 +1,10 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity,LayoutAnimation, FlatList, Image } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, LayoutAnimation, FlatList, Image } from 'react-native'
 import { Ionicons } from "@expo/vector-icons";
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app"
-import { shadowColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 import moment from "moment";
-
+import Fire from '../Fire';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAAfhuSU-D274QDAIpC7A8KeiZa9nQbvc8",
@@ -18,6 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
+var posts1;
 const posts = [
     {
         id: "1",
@@ -54,6 +54,10 @@ const posts = [
 ];
 
 export default class HomeScreen extends React.Component {
+    componentDidMount() {
+        posts1 = Fire.readPosts();
+        console.log(posts1);
+    }
     renderPost = post => {
         return (
             <View style={styles.feedItem}>
@@ -65,13 +69,13 @@ export default class HomeScreen extends React.Component {
                             <Text style={styles.timestamp}>{moment(post.timestamp).fromNow()}</Text>
                         </View>
 
-                        <Ionicons name="ios-more" size={24} color="#73788B" />
+                        <Ionicons name="reorder-three" size={24} color="#73788B" />
                     </View>
                     <Text style={styles.post}>{post.text}</Text>
                     <Image source={post.image} style={styles.postImage} resizeMode="cover" />
                     <View style={{ flexDirection: "row" }}>
-                        <Ionicons name="ios-heart-empty" size={24} color="#73788B" style={{ marginRight: 16 }} />
-                        <Ionicons name="ios-chatboxes" size={24} color="#73788B" />
+                        <Ionicons name="heart-circle" size={24} color="#73788B" style={{ marginRight: 16 }} />
+                        <Ionicons name="chatbox" size={24} color="#73788B" />
                     </View>
                 </View>
             </View>
@@ -110,7 +114,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         borderBottomWidth: 1,
         borderBottomColor: "#EBECF4",
-        shadowColor: "#454D65",
         shadowOffset: { height: 5 },
         shadowRadius: 15,
         shadowOpacity: 0.2,
