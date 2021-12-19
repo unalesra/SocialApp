@@ -17,3 +17,42 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
+
+export default class LogoutScreen extends React.Component {
+    render() {
+        LayoutAnimation.easeInEaseOut();
+
+        return (
+            <View style={styles.container}>
+                <Image
+                    source={require('../assets/authHeader.png')}
+                    style={{ marginTop: -180, marginLeft: -70 }}>
+                </Image>
+
+                <Button
+                    onPress={() => {
+                        Fire.shared.signOut();
+                    }}
+                    title="Çıkış Yap"
+                />
+
+            </View>
+        )}   
+
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center"
+    }
+});
+
+const AppNavigator = createDrawerNavigator({
+    Home: {
+        screen: HomeScreen
+      }
+    });
+  
+  const AppContainer = createAppContainer(AppNavigator);
