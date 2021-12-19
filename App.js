@@ -1,18 +1,33 @@
+<<<<<<< Updated upstream
+=======
 import React from "react";
-import { createAppContainer, createSwitchNavigator } from "react-navigation";
+import { createAppContainer, createSwitchNavigator , createDrawerNavigator} from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { Ionicons } from '@expo/vector-icons'
+>>>>>>> Stashed changes
 
+ import {createAppContainer, createSwitchNavigator} from "react-navigation";
+ import { createStackNavigator } from 'react-navigation-stack'
 import LoadingScreen from './screens/LoadingScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
-
 import HomeScreen from './screens/HomeScreen'
-import MessageScreen from './screens/MessageScreen'
+<<<<<<< Updated upstream
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import firebase from 'firebase/app';
+
+const AppStack= createStackNavigator({
+  Home:{ screen: HomeScreen}
+})
+=======
 import PostScreen from './screens/PostScreen'
-import NotificationScreen from './screens/NotificationScreen'
 import ProfileScreen from './screens/ProfileScreen'
+import LogoutScreen from './screens/LogoutScreen'
+
 
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -24,12 +39,6 @@ const AppContainer = createStackNavigator(
           screen: HomeScreen,
           navigationOptions: {
             tabBarIcon: ({ tintColor }) => <Ionicons name="home" size={24} color={tintColor} />
-          }
-        },
-        Message: {
-          screen: MessageScreen,
-          navigationOptions: {
-            tabBarIcon: ({ tintColor }) => <Ionicons name="chatbox" size={24} color={tintColor} />
           }
         },
         Post: {
@@ -45,12 +54,6 @@ const AppContainer = createStackNavigator(
                   shadowRadius: 10,
                   shadowOpacity: 0.3
                 }} />
-          }
-        },
-        Notification: {
-          screen: NotificationScreen,
-          navigationOptions: {
-            tabBarIcon: ({ tintColor }) => <Ionicons name="notifications" size={24} color={tintColor} />
           }
         },
         Profile: {
@@ -87,29 +90,46 @@ const AppContainer = createStackNavigator(
     headerMode: "none",
   }
 )
+const DrawerNav = createDrawerNavigator({
+  Logout: {
+    screen: LogoutScreen
+  },
+  Home: {
+    screen: HomeScreen
+  }
+  });
+>>>>>>> Stashed changes
 
-
-const AuthStack = createStackNavigator({
-  Login: LoginScreen,
-  Register: RegisterScreen
-}, {
-  initialRouteName: "Register"
-});
-
+const AuthStack= createStackNavigator({
+Login: { screen:LoginScreen},
+Register: {screen: RegisterScreen}
+})
 
 export default createAppContainer(
 
+<<<<<<< Updated upstream
+createSwitchNavigator( {
+  Loading: LoadingScreen,
+  App: AppStack,
+  Auth: AuthStack
+},
+{
+  initialRouteName:"Loading"
+}))
+=======
   createSwitchNavigator(
     {
       Loading: LoadingScreen,
       Auth: AuthStack,
       App: AppContainer,
+      Logout: DrawerNav
     },
     {
       initialRouteName: "Loading"
     }
   )
 );
+>>>>>>> Stashed changes
 
 const styles = StyleSheet.create({
   container: {

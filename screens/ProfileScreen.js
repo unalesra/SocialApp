@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, Button, Image } from "react-native";
 import Fire from "../Fire";
+import Logout from "./LogoutScreen";
 
 export default class ProfileScreen extends React.Component {
     state = {
@@ -41,10 +42,8 @@ export default class ProfileScreen extends React.Component {
                 </View>
 
                 <Button
-                    onPress={() => {
-                        Fire.shared.signOut();
-                    }}
-                    title="Log out"
+                   onPress={() => this.props.navigation.navigate("Logout")}
+                    title="Çıkış Yap"
                 />
             </View>
         );

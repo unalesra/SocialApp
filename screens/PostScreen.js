@@ -17,21 +17,7 @@ export default class PostScreen extends React.Component {
     }
 
     componentDidMount() {
-        this.getPhotoPermission();
-    }
-
-    getPhotoPermission = async () => {
-        if (Contants.platform.ios) {
-            const { status } = await Permission.askAsync(Permission.MEDIA_LIBRARY)
-        }
-        //bunu ben ekledim androidte denemek icin -ziroo
-        if (Contants.platform.android) {
-            const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-        }
-
-        if (status != "granted") {
-            alert("We need permission to access your camera roll");
-        }
+    
     }
 
     handlePost = () => {
@@ -42,19 +28,6 @@ export default class PostScreen extends React.Component {
             alert(error);
         })
     }
-
-    pickImage = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.Images,
-            allowsEditing: true,
-            aspect: [4, 3]
-        });
-
-        if (result.cancelled) {
-            this.setState({ image: result.uri });
-        }
-    }
-
     render() {
         LayoutAnimation.easeInEaseOut();
         return (
@@ -64,7 +37,7 @@ export default class PostScreen extends React.Component {
                         <Ionicons name="md-arrow-back" size={24} color="#D8D9DB"></Ionicons>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={this.handlePost}>
-                        <Text style={{ fontWeight: "500" }}>Post</Text>
+                        <Text style={{ fontWeight: "500" }}>Yayınla</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -83,9 +56,6 @@ export default class PostScreen extends React.Component {
                         value={this.state.text}
                     ></TextInput>
                 </View>
-                <TouchableOpacity style={styles.photo} onPress={this.pickImage}>
-                    <Ionicons name="md-camera" size={32} color="#D8D9DB"></Ionicons>
-                </TouchableOpacity>
                 <View style={{ marginHorizontal: 32, marginTop: 32, height: 150 }}>
                     <Image source={{ uri: this.state.image }} style={{ width: "100%", height: "100%" }}></Image>
                 </View>
@@ -99,12 +69,14 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     header: {
+        paddingTop: 44,
         flexDirection: "row",
         justifyContent: "space-between",
         paddingHorizontal: 32,
         paddingVertical: 12,
         borderBottomWidth: 1,
         borderBottomColor: "#D8D9DB"
+
     },
     inputContainer: {
         margin: 32,
