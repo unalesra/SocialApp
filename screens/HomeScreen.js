@@ -41,7 +41,7 @@ export default class HomeScreen extends React.Component{
             <View style= {styles.container}> 
                 <Text>Hi {this.state.email}! </Text>
 
-                <TouchableOpacity style={{ marginTop: 32}} onPress={this.signoutUser}>
+                <TouchableOpacity style={{ marginTop: 32}} onPress={this.props.navigation.navigate("Login")}>
                     <Text>Çıkış Yap</Text>
                 </TouchableOpacity>
             </View>

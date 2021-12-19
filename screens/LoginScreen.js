@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet, TextInput,TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar, LayoutAnimation } from 'react-native'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app"
 
@@ -16,6 +16,9 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
 export default class LoginScreen extends React.Component{
+    static navigationOptions = {
+        header: null
+    };
 
     state ={
         email:"",
@@ -34,6 +37,8 @@ export default class LoginScreen extends React.Component{
         return( 
 
             <View style= {styles.container}> 
+                <StatusBar barStyle='light=content'></StatusBar>
+
                 <Text style={styles.greeting}>
                     {"Selam\n Hoşgeldin!"}    
                  </Text>
@@ -67,6 +72,12 @@ export default class LoginScreen extends React.Component{
                     </Text>                     
                 </TouchableOpacity>
 
+                <Image
+                    source={{
+                        uri: 'https://reactnative.dev/img/tiny_logo.png',
+                      }}
+                 >
+                </Image>
             </View>
 
         );
