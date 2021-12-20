@@ -5,6 +5,7 @@ import HomeScreen from './HomeScreen'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { initializeApp } from "firebase/app"
 import Fire from '../Fire';
+import ProfileScreen from './ProfileScreen';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAAfhuSU-D274QDAIpC7A8KeiZa9nQbvc8",
@@ -27,7 +28,7 @@ export default class LogoutScreen extends React.Component {
             <View style={styles.container}>
                 <Image
                     source={require('../assets/authHeader.png')}
-                    style={{ marginTop: -180, marginLeft: -70 }}>
+                    style={{ marginTop: -500, marginLeft: -70 }}>
                 </Image>
 
                 <Button
@@ -50,10 +51,4 @@ const styles = StyleSheet.create({
     }
 });
 
-const AppNavigator = createDrawerNavigator({
-    Home: {
-        screen: HomeScreen
-      }
-    });
-  
-  const AppContainer = createAppContainer(AppNavigator);
+

@@ -43,7 +43,7 @@ export default class RegisterScreen extends React.Component {
                     style={{ marginTop: -180, marginLeft: -70 }}>
                 </Image>
                 <Text style={styles.greeting}>
-                    {"Başlamak için kayıt ol!"}
+                    {"BAŞLAMAK İÇİN KAYIT OL!"}
                 </Text>
                 <View style={styles.errorMessage}>
                     {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
@@ -82,7 +82,7 @@ export default class RegisterScreen extends React.Component {
                 </TouchableOpacity>
                 <TouchableOpacity style={{ alignSelf: "center", marginTop: 32 }} onPress={() => this.props.navigation.navigate("Login")}>
                     <Text style={{ color: "#414959", fontSize: 13 }}>Zaten Kayıt Oldun mu?
-                        <Text style={{ fontWeight: "500", color: "#E9446A" }}>  Giriş Yap</Text>
+                        <Text style={{ fontWeight: "500", color: "#4d79ff" }}>  Giriş Yap</Text>
                     </Text>
                 </TouchableOpacity>
 
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
 
     button: {
         marginHorizontal: 10,
-        backgroundColor: "#E9446A",
+        backgroundColor: "#4d79ff",
         borderRadius: 4,
         height: 52,
         alignItems: "center",

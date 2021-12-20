@@ -45,7 +45,7 @@ export default class LoginScreen extends React.Component {
                 </Image>
 
                 <Text style={styles.greeting}>
-                    {"Hoşgeldin!"}
+                    {"HOŞGELDİN!"}
                 </Text>
                 <View style={styles.errorMessage}>
                     {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
@@ -73,7 +73,7 @@ export default class LoginScreen extends React.Component {
                 </TouchableOpacity>
                 <TouchableOpacity style={{ alignSelf: "center", marginTop: 32 }} onPress={() => this.props.navigation.navigate("Register")}>
                     <Text style={{ color: "#414959", fontSize: 13 }}>Uygulamamızda Yeni Misiniz?
-                        <Text style={{ fontWeight: "500", color: "#E9446A" }}>  Kayıt Ol</Text>
+                        <Text style={{ fontWeight: "500", color: "#4d79ff" }}>  Kayıt Ol</Text>
                     </Text>
                 </TouchableOpacity>
 
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
         marginTop: -50,
         fontSize: 18,
         fontWeight: "400",
-        textAlign: "center"
+        textAlign: "center",
     },
     errorMessage: {
         height: 72,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
 
     button: {
         marginHorizontal: 10,
-        backgroundColor: "#E9446A",
+        backgroundColor: "#4d79ff",
         borderRadius: 4,
         height: 52,
         alignItems: "center",

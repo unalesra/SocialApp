@@ -6,6 +6,7 @@ import { initializeApp } from "firebase/app"
 import moment from "moment";
 import Fire from '../Fire';
 import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
+import { color } from 'react-native-reanimated';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAAfhuSU-D274QDAIpC7A8KeiZa9nQbvc8",
@@ -68,9 +69,9 @@ export default class HomeScreen extends React.Component {
                  
                         </View>
                     </View>
-                    <View style={{ flexDirection: "row" }}>
-                        <Ionicons name="heart-circle" size={24} color="#73788B" style={{ marginRight: 16 }} />
-                        <Ionicons name="chatbox" size={24} color="#73788B" />
+                    <View style={{ flexDirection: "row" , paddingTop: 15}}>
+                        <Ionicons name="heart-outline" size={24} color="#73788B" style={{ marginRight: 16 }} />
+                        <Ionicons name="chatbubble-outline" size={24} color="#73788B" />
                     </View>
                 </View>
             </View>
@@ -110,13 +111,15 @@ const styles= StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: "#EBECF4",
         shadowOffset: { height: 5 },
+        shadowColor: "#4d79ff",
         shadowRadius: 15,
         shadowOpacity: 0.2,
         zIndex: 10
     },
     headerTitle: {
         fontSize: 20,
-        fontWeight: "500"
+        fontWeight: "500",
+        color: "#4d79ff"
     },
     feed: {
         marginHorizontal: 16

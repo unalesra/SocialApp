@@ -32,7 +32,7 @@ const AppContainer = createStackNavigator(
               <Ionicons
                 name="add-circle"
                 size={48} color={tintColor}
-                color="#E9446A"
+                color="#4d79ff"
                 style={{
                   shadowOffset: { width: 0, height: 0 },
                   shadowRadius: 10,
@@ -75,11 +75,14 @@ const AppContainer = createStackNavigator(
   }
 )
 const DrawerNav = createDrawerNavigator({
-  Logout: {
+  Çıkış: {
     screen: LogoutScreen
   },
-  Home: {
+  AnaSayfa: {
     screen: HomeScreen
+  },
+  Profil:{
+    screen: ProfileScreen
   }
   });
 

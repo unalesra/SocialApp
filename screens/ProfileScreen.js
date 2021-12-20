@@ -43,7 +43,7 @@ export default class ProfileScreen extends React.Component {
 
                 <Button style={styles.button}
                    onPress={() => this.props.navigation.navigate("Logout")}
-                    title="Çıkış Yap"
+                    title="Çıkış Sayfasına Gitmek İçin Tıkla"
                 />
             </View>
         );
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     avatarContainer: {
-        shadowColor: "#151734",
+        shadowColor: "#4d79ff",
         shadowRadius: 30,
         shadowOpacity: 0.4
     },
