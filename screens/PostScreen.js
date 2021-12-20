@@ -1,11 +1,7 @@
-import React from 'react'
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image, TextInput, LayoutAnimation } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
-import Contants from "expo-constants"
-import * as Permission from "expo-permissions"
-import Fire from '../Fire'
-import * as ImagePicker from 'expo-image-picker'
-import { StatusBar } from 'expo-status-bar'
+import React from 'react';
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image, TextInput, LayoutAnimation } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import Fire from '../Fire';
 
 //const firebase = require('firebase')
 //require("firebase/firestore")

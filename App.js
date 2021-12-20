@@ -1,29 +1,13 @@
-<<<<<<< Updated upstream
-=======
 import React from "react";
 import { createAppContainer, createSwitchNavigator , createDrawerNavigator} from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { Ionicons } from '@expo/vector-icons'
->>>>>>> Stashed changes
 
- import {createAppContainer, createSwitchNavigator} from "react-navigation";
- import { createStackNavigator } from 'react-navigation-stack'
 import LoadingScreen from './screens/LoadingScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import HomeScreen from './screens/HomeScreen'
-<<<<<<< Updated upstream
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-import firebase from 'firebase/app';
-
-const AppStack= createStackNavigator({
-  Home:{ screen: HomeScreen}
-})
-=======
 import PostScreen from './screens/PostScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import LogoutScreen from './screens/LogoutScreen'
@@ -98,7 +82,6 @@ const DrawerNav = createDrawerNavigator({
     screen: HomeScreen
   }
   });
->>>>>>> Stashed changes
 
 const AuthStack= createStackNavigator({
 Login: { screen:LoginScreen},
@@ -107,16 +90,6 @@ Register: {screen: RegisterScreen}
 
 export default createAppContainer(
 
-<<<<<<< Updated upstream
-createSwitchNavigator( {
-  Loading: LoadingScreen,
-  App: AppStack,
-  Auth: AuthStack
-},
-{
-  initialRouteName:"Loading"
-}))
-=======
   createSwitchNavigator(
     {
       Loading: LoadingScreen,
@@ -129,7 +102,6 @@ createSwitchNavigator( {
     }
   )
 );
->>>>>>> Stashed changes
 
 const styles = StyleSheet.create({
   container: {

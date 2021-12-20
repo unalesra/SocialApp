@@ -4,6 +4,7 @@ import { createDrawerNavigator, createAppContainer} from 'react-navigation'
 import HomeScreen from './HomeScreen'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { initializeApp } from "firebase/app"
+import Fire from '../Fire';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAAfhuSU-D274QDAIpC7A8KeiZa9nQbvc8",

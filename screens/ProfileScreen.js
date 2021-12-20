@@ -19,7 +19,7 @@ export default class ProfileScreen extends React.Component {
                             source={
                                 this.state.user.avatar
                                     ? { uri: this.state.user.avatar }
-                                    : require("../assets/icon.png")
+                                    : require("../assets/tempAvatar.png")
                             }
                             style={styles.avatar}
                         />
@@ -29,19 +29,19 @@ export default class ProfileScreen extends React.Component {
                 <View style={styles.statsContainer}>
                     <View style={styles.stat}>
                         <Text style={styles.statAmount}>21</Text>
-                        <Text style={styles.statTitle}>Posts</Text>
+                        <Text style={styles.statTitle}>Post</Text>
                     </View>
                     <View style={styles.stat}>
-                        <Text style={styles.statAmount}>981</Text>
-                        <Text style={styles.statTitle}>Followers</Text>
+                        <Text style={styles.statAmount}>150</Text>
+                        <Text style={styles.statTitle}>Takipçi</Text>
                     </View>
                     <View style={styles.stat}>
                         <Text style={styles.statAmount}>63</Text>
-                        <Text style={styles.statTitle}>Following</Text>
+                        <Text style={styles.statTitle}>Takip Edilen</Text>
                     </View>
                 </View>
 
-                <Button
+                <Button style={styles.button}
                    onPress={() => this.props.navigation.navigate("Logout")}
                     title="Çıkış Yap"
                 />
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     statsContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
-        margin: 32
+        margin: 32,
     },
     stat: {
         alignItems: "center",
@@ -92,5 +92,8 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: "500",
         marginTop: 4
+    },
+    button:{
+        
     }
 });
