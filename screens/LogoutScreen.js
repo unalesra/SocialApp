@@ -1,11 +1,8 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, LayoutAnimation,Button } from 'react-native'
-import { createDrawerNavigator, createAppContainer} from 'react-navigation'
-import HomeScreen from './HomeScreen'
+import { View, Text, StyleSheet, Image, LayoutAnimation, Button } from 'react-native'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { initializeApp } from "firebase/app"
 import Fire from '../Fire';
-import ProfileScreen from './ProfileScreen';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAAfhuSU-D274QDAIpC7A8KeiZa9nQbvc8",
@@ -39,7 +36,8 @@ export default class LogoutScreen extends React.Component {
                 />
 
             </View>
-        )}   
+        )
+    }
 
 }
 

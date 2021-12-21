@@ -1,103 +1,104 @@
-import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, LayoutAnimation, FlatList, Image } from 'react-native'
+import React, { useEffect } from 'react'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
 import { Ionicons } from "@expo/vector-icons";
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app"
-import moment from "moment";
-import Fire from '../Fire';
 import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
-import { color } from 'react-native-reanimated';
+
+import { PushNotification } from './Notification';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAAfhuSU-D274QDAIpC7A8KeiZa9nQbvc8",
-  authDomain: "socialapp-ff7da.firebaseapp.com",
-  projectId: "socialapp-ff7da",
-  storageBucket: "socialapp-ff7da.appspot.com",
-  messagingSenderId: "264530972757",
-  appId: "1:264530972757:web:f4fe0073af02ecbd0144dc"
+    apiKey: "AIzaSyAAfhuSU-D274QDAIpC7A8KeiZa9nQbvc8",
+    authDomain: "socialapp-ff7da.firebaseapp.com",
+    projectId: "socialapp-ff7da",
+    storageBucket: "socialapp-ff7da.appspot.com",
+    messagingSenderId: "264530972757",
+    appId: "1:264530972757:web:f4fe0073af02ecbd0144dc"
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
 const dbFirebase = getFirestore();
+
 export default class HomeScreen extends React.Component {
-        state={
-            posts1:""
-        }
-        
-        static readPosts = async () => {
-            const querySnapshot = await getDocs(collection(dbFirebase, "posts"));   
-            return querySnapshot.docs.map(doc => doc.data());     
-        }
-    
-    
-        async componentDidMount() {  
-            const querySnapshot = await getDocs(collection(dbFirebase, "posts"));
-            var x=querySnapshot.docs.map(doc => doc.data());
-            this.setState({posts1: x});
-            console.log(this.state.posts1);
-        }
-        renderPost = post => {
-            return (
-    
-                <View style={styles.feedItem}>
-                    <View style={{ flex: 1 }}>
-                        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                            <View>
-                                <Text style={styles.name}>{post}</Text>
-                            </View>
-    
-                            <Ionicons name="reorder-three" size={24} color="#73788B" />
+
+    state = {
+        posts1: ""
+    }
+
+    static readPosts = async () => {
+        const querySnapshot = await getDocs(collection(dbFirebase, "posts"));
+        return querySnapshot.docs.map(doc => doc.data());
+    }
+
+    async componentDidMount() {
+        const querySnapshot = await getDocs(collection(dbFirebase, "posts"));
+        var x = querySnapshot.docs.map(doc => doc.data());
+        this.setState({ posts1: x });
+        //console.log(this.state.posts1);
+        PushNotification();
+    }
+    renderPost = post => {
+        return (
+
+            <View style={styles.feedItem}>
+                <View style={{ flex: 1 }}>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                        <View>
+                            <Text style={styles.name}>{post}</Text>
                         </View>
-                        <View style={{ flexDirection: "row" }}>
-                            <Ionicons name="heart-circle" size={24} color="#73788B" style={{ marginRight: 16 }} />
-                            <Ionicons name="chatbox" size={24} color="#73788B" />
-                        </View>
+
+                        <Ionicons name="reorder-three" size={24} color="#73788B" />
+                    </View>
+                    <View style={{ flexDirection: "row" }}>
+                        <Ionicons name="heart-circle" size={24} color="#73788B" style={{ marginRight: 16 }} />
+                        <Ionicons name="chatbox" size={24} color="#73788B" />
                     </View>
                 </View>
-            );
-        };
-        
-        render() {
-            const Item = ({ text}) => (
-                 <View style={styles.feedItem}>
+            </View>
+        );
+    };
+
+    render() {
+        const Item = ({ text }) => (
+            <View style={styles.feedItem}>
                 <View style={{ flex: 1 }}>
                     <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                         <View>
                             <Text style={styles.name}>{text}</Text>
-                 
+
                         </View>
                     </View>
-                    <View style={{ flexDirection: "row" , paddingTop: 15}}>
+                    <View style={{ flexDirection: "row", paddingTop: 15 }}>
                         <Ionicons name="heart-outline" size={24} color="#73788B" style={{ marginRight: 16 }} />
                         <Ionicons name="chatbubble-outline" size={24} color="#73788B" />
                     </View>
                 </View>
             </View>
-              );
-            const renderItem = ({ item }) => (
-                <Item text={item.text} />
-              );
-            return (
-          
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.headerTitle}>Akış</Text>
-                    </View>
-    
-                    <FlatList
-                        style={styles.feed}
-                        data={this.state.posts1}
-                        renderItem={renderItem}
-                        showsVerticalScrollIndicator={false}
-                    ></FlatList>
+        );
+        const renderItem = ({ item }) => (
+            <Item text={item.text} />
+        );
+        return (
+
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.headerTitle}>Akış</Text>
                 </View>
-            );
+
+                <FlatList
+                    style={styles.feed}
+                    data={this.state.posts1}
+                    renderItem={renderItem}
+                    showsVerticalScrollIndicator={false}
+                ></FlatList>
+            </View>
+        );
     }
 }
 
-const styles= StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#EBECF4"
