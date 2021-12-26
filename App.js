@@ -1,5 +1,6 @@
 import React from "react";
-import { createAppContainer, createSwitchNavigator , createDrawerNavigator} from "react-navigation";
+import { StyleSheet } from 'react-native';
+import { createAppContainer, createSwitchNavigator, createDrawerNavigator } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { Ionicons } from '@expo/vector-icons'
@@ -12,8 +13,6 @@ import PostScreen from './screens/PostScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import LogoutScreen from './screens/LogoutScreen'
 
-
-import { StyleSheet, Text, View } from 'react-native';
 
 const AppContainer = createStackNavigator(
   {
@@ -81,14 +80,14 @@ const DrawerNav = createDrawerNavigator({
   AnaSayfa: {
     screen: HomeScreen
   },
-  Profil:{
+  Profil: {
     screen: ProfileScreen
   }
-  });
+});
 
-const AuthStack= createStackNavigator({
-Login: { screen:LoginScreen},
-Register: {screen: RegisterScreen}
+const AuthStack = createStackNavigator({
+  Login: { screen: LoginScreen },
+  Register: { screen: RegisterScreen }
 })
 
 export default createAppContainer(
